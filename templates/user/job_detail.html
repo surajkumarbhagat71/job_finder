@@ -1,0 +1,25 @@
+{% extends 'user/base.html' %}
+
+{% block content %}
+    <div class="container-fluid mt-3">
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            <div class="card shadow-sm">
+                <div class="card-body border-0 shadow-sm">
+                    <h5 class="display-5 ml-3"><b>{{ detail_job.job_name }}</b></h5>
+                    <h5 class="small ml-4"><b>Company :</b> {{ detail_job.com_id.com_name }}</h5>
+                    <h5 class="small ml-4"><b>Lucation :</b> {{ detail_job.com_id.com_city }} , {{ detail_job.com_id.com_address }}</h5>
+                    <h5 class="small ml-4"><b>Education :</b> {{ detail_job.edication }}</h5>
+                    <h5 class="small ml-4"><b>Exprince :</b> {{ detail_job.exprience }}</h5>
+                    <h5 class="small ml-4"><b>Job Type :</b> {{ detail_job.job_type }}</h5>
+                    <h5 class="small ml-4"><b>schedule :</b> {{ detail_job.schedule }}</h5>
+                    <h5 class="small ml-4"><b>salary :</b> {{ detail_job.salary }} p/m</h5>
+                    <h5 class="small ml-4"><b>Discription :</b> {{ detail_job.dicription }}</h5>
+                    <h5 class="small ml-4"><b>Date Time :</b> {{ detail_job.datetime }}</h5>
+                    <a href="{% url 'apply' detail_job.job_id %}" class="btn btn-success ml-5 mt-4">Apply For Jobs</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+{% endblock %}

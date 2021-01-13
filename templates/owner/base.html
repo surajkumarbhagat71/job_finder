@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'bootstrap.css' %}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+</head>
+<body>
+
+
+<nav class="navbar navbar-expand-lg navbar-dark " style="background-color:#227093">
+  <div class="container-fluid">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+      <a class="navbar-brand ml-5" href=""><b> JOB'S Finder</b></a>
+
+
+
+      <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
+          {% if user.is_authenticated  %}
+              <li class="nav-item">
+                <a class="btn btn-danger ml-5 mr-4" href="{% url 'logout' %}">Logout</a>
+              </li>
+           {% else %}
+              <li class="nav-item">
+                <a class="nav-link ml-3" href="{% url 'usersignup' %}">Signup</a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link ml-3" href="{% url 'login' %}">Login</a>
+              </li>
+          {% endif %}
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="container-fluid p-0">
+    <div class="row no-gutters">
+        <div class="col-lg-3">
+            <ul class="list-group">
+                <a href="{% url 'owner_profile' %}" class="list-group list-group-item list-group-item-action">Profile</a>
+                <a href="{% url 'add_job' %}" class="list-group list-group-item list-group-item-action">Add Job</a>
+                <a href="{% url 'alljob' %}" class="list-group list-group-item list-group-item-action">All Jobs</a>
+                <a href="{% url 'allapplyforjob' %}" class="list-group list-group-item list-group-item-action">All Applyed</a>
+                <a href="{% url 'allselectedforinterview' %}" class="list-group list-group-item list-group-item-action"> Selected for interview</a>
+            </ul>
+        </div>
+        <div class="col-lg-9">
+            {% block content  %} {% endblock %}
+        </div>
+    </div>
+</div>
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+</body>
+</html>

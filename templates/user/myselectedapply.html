@@ -1,0 +1,24 @@
+{% extends 'user/base.html' %}
+
+{% block content %}
+    <div class="container-fluid mt-2">
+    <div class="row">
+        {% for x in myselectedapply %}
+        <div class="col-lg-8 mt-2 mx-auto">
+            <div class="card shadow-sm">
+                <div class="card-body border-0 shadow-sm">
+                    <a href="{% url 'my_apply_detail' x.apply_id %}">
+                        <h5 class="display-5 ml-3">{{ x.job_id.job_name }}</h5>
+                    </a>
+                    <h5 class="small ml-4"><b>Company :</b> {{ x.job_id.com_id.com_name }}</h5>
+                    <h5 class="small ml-4"><b>Lucation :</b> {{ x.job_id.com_id.com_city }} ,{{ x.job_id.com_id.com_address }}</h5>
+                    <h5 class="small ml-4"><b>Date Time :</b> {{ x.job_id.datetime }}</h5>
+                    <h5 class="display-5 ml-3 mt-3"><b class="text-secondary">Status :-</b>You are Selected <label class="ml-2 mr-2"><b>And</b></label>check your email</h5>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    </div>
+{% endblock %}
+

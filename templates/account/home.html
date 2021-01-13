@@ -1,0 +1,23 @@
+{% extends 'account/base.html' %}
+
+
+{% block content %}
+    <div class="container-fluid mt-2">
+    <div class="row">
+        {% for x in jonlist %}
+        <div class="col-lg-8 mt-2 mx-auto">
+            <div class="card shadow-sm">
+                <div class="card-body border-0 shadow-sm">
+                    <a href="{% url 'jobdetail' x.job_id %}">
+                        <h5 class="display-5 ml-3">{{ x.job_name }}</h5>
+                    </a>
+                    <h5 class="small ml-4"><b>Company :</b> {{ x.com_id.com_name }}</h5>
+                    <h5 class="small ml-4"><b>Lucation :</b> {{ x.com_id.com_city }} ,{{ x.com_id.com_address }}</h5>
+                    <h5 class="small ml-4"><b>Date Time :</b> {{ x.datetime }}</h5>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    </div>
+{% endblock %}

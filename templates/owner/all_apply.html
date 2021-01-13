@@ -1,0 +1,41 @@
+{% extends 'owner/base.html' %}
+
+{% block content %}
+    <div class="container-fluid mt-3">
+    <div class="row">
+        {% for detail_job in applyforjob %}
+        <div class="col-lg-8 mx-auto mt-3">
+            <div class="card shadow-sm">
+                <div class="card-body border-0 shadow-sm">
+                   <div class="card">
+                        <h5 class="display-5 ml-3"><b>{{ detail_job.job_id.job_name }}</b></h5>
+                        <h5 class="small ml-4"><b>Company :</b> {{ detail_job.job_id.com_id.com_name }}</h5>
+                        <h5 class="small ml-4"><b>Lucation :</b> {{ detail_job.job_id.com_id.com_city }} , {{ detail_job.job_id.com_id.com_address }}</h5>
+                        <h5 class="small ml-4"><b>Education :</b> {{ detail_job.job_id.exprience }}</h5>
+                        <h5 class="small ml-4"><b>Exprince :</b> {{ detail_job.job_id.exprience }}</h5>
+                        <h5 class="small ml-4"><b>Job Type :</b> {{ detail_job.job_id.job_type }}</h5>
+                        <h5 class="small ml-4"><b>schedule :</b> {{ detail_job.job_id.schedule }}</h5>
+                        <h5 class="small ml-4"><b>salary :</b> {{ detail_job.job_id.salary }} p/m</h5>
+                        <h5 class="small ml-4"><b>Discription :</b> {{ detail_job.job_id.dicription }}</h5>
+                        <h5 class="small ml-4"><b>Date Time :</b> {{ detail_job.job_id.datetime }}</h5>
+                   </div>
+
+                    <div class="card">
+                        <h5 class="display-5 ml-3"><b></b></h5>
+                        <h5 class="small ml-4"><b>Name  :</b> {{ detail_job.first_name }} {{ detail_job.last_name }}</h5>
+                        <h5 class="small ml-4"><b>Contact :</b> {{ detail_job.contact }}</h5>
+                        <h5 class="small ml-4"><b>Email :</b> {{ detail_job.email }}</h5>
+                        <h5 class="small ml-4"><b>City :</b> {{ detail_job.city }}</h5>
+                        <h5 class="small ml-4"><b>Address :</b> {{ detail_job.address }}</h5>
+                        <h5 class="small ml-4"><b>My Resume :</b> <img src="{{ detail_job.resume.url }}" alt="" width="350px" class="ml-4"></h5><br>
+                   </div>
+                    <a href="{% url 'selectforinterview' detail_job.apply_id %}" class="btn btn-success mt-3 ">Select For interview</a>
+                </div>
+
+            </div>
+        </div>
+
+        {% endfor %}
+    </div>
+    </div>
+{% endblock %}

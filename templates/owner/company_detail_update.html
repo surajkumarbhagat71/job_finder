@@ -1,0 +1,27 @@
+{% extends 'owner/base.html' %}
+
+
+{% block content %}
+<div class="container-fluid mt-3">
+    {% load crispy_forms_tags %}
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <div class="card shadow-sm">
+                    <h5 class="display-5 text-center mt-2 text-success"><i>Udate Our Company Detail</i></h5>
+                    <div class="card-body border-0">
+                        <form action="" method="post" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <table class="table">
+                                {{ form|crispy }}
+                            </table>
+                            <div class="form-group">
+                                <input type="submit" class="btn btn-success btn-block">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
